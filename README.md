@@ -28,6 +28,10 @@
 
 `uv run main.py encrypt 9C63 C3F0 -m CBC`
 
+### Uji Avalanche Effect
+
+`uv run main.py encrypt 9C63 C3F0 --avalanche`
+
 ### Contoh
 
 `uv run main.py encrypt plain.txt A73B -m CBC -f -o cipher.bin`

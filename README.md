@@ -13,3 +13,22 @@
 3. `uv venv` (pastikan menggunakan python >=3.10 )
 4. `source .venv/bin/activate`
 5. `uv run main.py`
+
+## How to run
+
+### Enkripsi teks dengan ECB (verbose mode)
+
+`uv run main.py encrypt "Hello" A73B -v`
+
+### Dekripsi file dengan CBC
+
+`uv run main.py decrypt cipher.bin A73B -m CBC -f -o plain.txt`
+
+### Enkripsi hex dengan CBC
+
+`uv run main.py encrypt 9C63 C3F0 -m CBC`
+
+### Contoh
+
+`uv run main.py encrypt plain.txt A73B -m CBC -f -o cipher.bin`
+`uv run main.py decrypt cipher.bin A73B -m CBC -f -o decrypted.txt`

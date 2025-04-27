@@ -5,13 +5,13 @@ Fitur:
 2. Mode Operasi ECB dan CBC untuk data >16-bit
 3. Tampilan proses tiap round
 4. Support input teks/hex/file
-5. Uji Avalanche Effect (sensitivitas perubahan 1-bit pada plaintext/key) # Added Feature
+5. Uji Avalanche Effect (sensitivitas perubahan 1-bit pada plaintext/key)
 """
 
 from encrypt_decrypt import MiniAESCorePurePython
 import argparse
 import sys
-import random # Diimpor untuk memilih bit acak pada uji avalanche
+import random 
 
 # ---- Konstanta Mode Operasi ----
 MODE_ECB = "ECB"
@@ -228,7 +228,7 @@ def test_avalanche_effect(plaintext_hex, key_hex):
         flipped_key_hex = f"{flipped_key_int:04X}"
         flipped_key_state = hex_to_state(flipped_key_hex)
 
-        # Enkripsi plaintext *ASLI* dengan kunci yang sudah diubah
+        # Enkripsi plaintext asli dengan kunci yang sudah diubah
         flipped_key_ct_state = mini_aes.encrypt(pt_state_orig, flipped_key_state, verbose=False)
         flipped_key_ct_hex = state_to_hex(flipped_key_ct_state)
         # Hitung perbedaan bit
@@ -242,7 +242,6 @@ def test_avalanche_effect(plaintext_hex, key_hex):
         print(f"   Error saat uji sensitivitas kunci: {e}")
 
     print(f"\n*Catatan: Avalanche effect yang baik idealnya menghasilkan perubahan sekitar 50% bit ({total_bits // 2} bit).")
-    print("--- Akhir Uji Avalanche Effect ---")
 
 
 # ---- Fungsi Utama ----
